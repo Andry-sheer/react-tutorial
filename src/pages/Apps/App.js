@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import './App.css';
-import Input from './components/Input/Input';
-import TextBlock from './components/Text/Text';
+import Input from '../../components/Input/Input'
+import TextBlock from '../../components/Text/Text';
 //? import { Input } from './components/Input/Input'; (if use export)
 
 function formatName(user){
@@ -22,6 +22,11 @@ function App() {
     return <div>Hello</div>
   }
 
+  // if (login === 'Admin' && password === '12345678') {
+  //   localStorage.setItem('jwt', '78wr567thc');
+  //   go();
+  // }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -30,8 +35,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Input labelName="Name" ourClass='RoW' />
-        <Input labelName="Age" />
+        <Input />
+        <Input showIcon={true} />
         <TextBlock text="Something" />
         <a
           className="App-link"
@@ -45,6 +50,7 @@ function App() {
           href = {google} >
           Google
         </a>
+        {/* <Card /> */}
       </header>
     </div>
   );

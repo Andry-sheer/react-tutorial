@@ -1,10 +1,12 @@
+import { IoMdEye } from "react-icons/io";
+import "./Input.css";
 
-import './Input.css';
-
-const Input = ({ ourClass, labelName }) => {
+const Input = ({ showIcon }) => {
+  
   return (
-    <label className={ourClass ?  `label-input ${ourClass}` : "label-input"} >
-      {labelName} <input className='field-input' type="text" />
+    <label className={`label-input pass RoW`} >
+      {showIcon && <IoMdEye size="25px" color="green" />}
+      label: <input className='field-input' type="text" />
     </label>
   );
 };
