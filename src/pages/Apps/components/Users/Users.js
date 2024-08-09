@@ -17,7 +17,7 @@ class Users extends Component {
     const response = await fetch('https://66401c9ca7500fcf1a9d1857.mockapi.io/Products');
     const data = await response.json();
     
-    this.setState({ users: data })
+    this.setState({ users: data  })
   }
 
   render() {
