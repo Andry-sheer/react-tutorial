@@ -1,10 +1,8 @@
-import { Component } from "react";
-// import { FaSpinner } from "react-icons/fa";
+
 import logo from "../../../.././logo.svg";
 
-class Users extends Component {
-  render() {
-    const { users, isError, isLoading } = this.props;
+const Users = ({ users, isError, isLoading }) => {
+
     return (
       <div>
         <h1>Users</h1>
@@ -20,6 +18,5 @@ class Users extends Component {
       </div>
     );
   }
-}
 
 export default Users;

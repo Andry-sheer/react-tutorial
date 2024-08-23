@@ -1,72 +1,61 @@
-
-import { Component } from "react";
 import "./App.css";
 // import Clock from "../../components/Clock/Clock";
 import Users from "./components/Users/Users";
 import Profile from "./components/Profile/Profile";
-import FunctionalToggle from "../Apps/components/Toggle/FunctionalToggle";
-import Form from "./components/Form/Form";
+import Toggle from "./components/Toggle/Toggle";
+// import Form from "./components/Form/Form";
+// import Count from "./components/Count/Count";
+import { useEffect, useState } from "react";
 
-class App extends Component {
+const App = () => {
+  const [users, setUsers] = useState([]);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setISLoading] = useState(true);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [],
-      isError: false,
-      isLoading: true,
-    };
-  }
+  useEffect(() => {
+    getUsers();
+  }, []);
 
-  componentDidMount() {
-    this.getUsers()
-  }
+  const getUsers = async () => {
 
-  async getUsers() {
     try {
-      const response = await fetch(
-        "https://66401c9ca7500fcf1a9d1857.mockapi.io/users"
-      );
+      const response = await fetch("https://66401c9ca7500fcf1a9d1857.mockapi.io/users");
 
-      if (!response.ok) {
-        throw new Error("Something went wrong");
-      }
-
-      const data = await response.json();
-
-      this.setState({ users: data });
-      this.setState({ isLoading: false });
-      
-    } catch (error) {
-      this.setState({
-        isError: true,
-        isLoading: false,
-      });
+    if (!response.ok) {
+      throw new Error("Something went wrong");
     }
-  }
 
-  render() {
+    const data = await response.json();
 
-  const { users, isError, isLoading } = this.state;
+    setUsers(data);
+    setISLoading(false);
+    }  
+
+    catch (error) {
+      setISLoading(false);
+      setIsError(true);
+    }
+  };
 
   return (
-    <div className="App">
-      <header className="App-header">
+      <div className="App">
+        <header className="App-header">
 
-        <Profile user={users[1]} />
+          <Profile user={users[1]} />
 
-        <FunctionalToggle />
+          <Toggle />
 
-        <Form />
+          {/* <Form /> */}
 
-        {/* <Clock date={new Date()} /> */}
+          {/* <Clock date={new Date()} /> */}
 
-        <Users users={users} isError={isError} isLoading={isLoading} />
+          <Users users={users} isError={isError} isLoading={isLoading} />
 
-      </header>
-    </div>
-    );
-  }
-}
+          {/* <Count /> */}
+
+        </header>
+      </div>
+  );
+};
 
 export default App;
