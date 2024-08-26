@@ -1,41 +1,66 @@
-
 import { Component } from "react";
 
-
 class Form extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+    this.state = { login: "", password: "", isNameEmpty: false, isPasswordEmpty: false };
 
-    this.state = { name: "", password: ""};
-
-    // this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
-  handleChange =(event, fieldName)=> {
-    this.setState({ [fieldName]: event.target.value});
-    // console.log(event.target.value)
-  }
+  handleChange(event){
+
+    if(event.target.name === 'name'){
+      this.state({ isNameEmpty: false })
+    }
+
+    this.setState({ [event.target.name]: event.target.value});
+  };
 
   handleSubmit(event) {
-    console.log('submit name: ' + this.state.name);
-    console.log('submit password: ' + this.state.password);
     event.preventDefault();
-    // console.log('name: ' + this.state.value)
+
+    if(this.state.login.trim() === ""){
+      this.state({ isNameEmpty: true })
+    }
+
+    if(this.state.password.trim() === ""){
+      this.state({ isPasswordEmpty: true })
+    }
+
+    console.log(this.state);
   }
+
+
+
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit }>
+      <form onSubmit={this.handleSubmit}>
         <label>
-          Name: 
-          <input type="text" value={this.state.name} onChange={(event) => this.handleChange(event, 'name') } />
+          Name:
+          <input
+            name="login"
+            type="text"
+            value={this.state.name}
+            onChange={(event) => this.handleChange(event, "login")}
+          />
+          {this.state.isNameEmpty && <span>Please enter the name</span>}
         </label>
 
         <label>
-          Password: 
-          <input type="password" value={this.state.password} onChange={(event) => this.handleChange(event, 'password') } />
+          Password:
+          <input
+            name="password"
+            type="password"
+            value={this.state.password}
+            onChange={(event) => this.handleChange(event, "password")}
+          />
+          {this.state.isPasswordEmpty && <span>Please enter the password</span>}
         </label>
+
         <input type="submit" value="надіслати" />
       </form>
     );
