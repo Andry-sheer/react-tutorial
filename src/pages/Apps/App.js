@@ -1,10 +1,10 @@
 import "./App.css";
-// import Clock from "../../components/Clock/Clock";
+import Clock from "../../components/Clock/Clock";
 import Users from "./components/Users/Users";
 import Profile from "./components/Profile/Profile";
 import Toggle from "./components/Toggle/Toggle";
-// import Form from "./components/Form/Form";
-// import Count from "./components/Count/Count";
+import Form from "./components/Form/Form";
+import Count from "./components/Count/Count";
 import { useEffect, useState } from "react";
 
 const App = () => {
@@ -41,15 +41,15 @@ const App = () => {
       <div className="App">
         <header className="App-header">
 
-          <Profile user={users[1]} />
+          {/* <Profile user={users[1]} /> */}
 
-          <Toggle />
+          {/* <Toggle /> */}
 
-          {/* <Form /> */}
+          <Form />
 
           {/* <Clock date={new Date()} /> */}
 
-          <Users users={users} isError={isError} isLoading={isLoading} />
+          {/* <Users users={users} isError={isError} isLoading={isLoading} /> */}
 
           {/* <Count /> */}
 
