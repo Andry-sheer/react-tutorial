@@ -17,34 +17,19 @@ const colorOptions = [
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", password: "", color: "", isHuman: false };
+    this.state = { name: "", password: ""};
 
-    // this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
 
   handleChange = (event, fieldName) => {
     this.setState({ [fieldName]: event.target.value });
-    // console.log(event.target.value)
   };
 
   handleSubmit(event) {
     console.log(this.state);
     event.preventDefault();
-    // console.log('name: ' + this.state.value)
-  }
-
-  handleChangeSelect(values){
-    this.setState({ color: values.map(option => option.value).join(" , ") });
-    // console.log(props);
-  }
-
-  handleCheckboxChange(event){
-    this.setState({
-      isHuman: event.target.checked
-    });
   }
 
   render() {
@@ -68,27 +53,52 @@ class Form extends Component {
           />
         </label>
         <input type="submit" value="надіслати" />
-
-        <label>
-          Human?: 
-          <input
-            name="isGoing"
-            type="checkbox"
-            checked={this.state.isHuman}
-            onChange={this.handleCheckboxChange} />
-        </label>
-
-        <Select
-          isMulti
-          name="colors"
-          options={colorOptions}
-          className="basic-multi-select"
-          classNamePrefix="select"
-          onChange={this.handleChangeSelect}
-        />
       </form>
     );
   }
 }
 
 export default Form;
+
+
+
+// import React, { useState } from 'react';
+
+// function Form() {
+//   const [name, setName] = useState("");
+//   const [password, setPassword] = useState("");
+
+//   const handleChange = (event, setState) => {
+//     setState(event.target.value);
+//   };
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     console.log({ name, password });
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <label>
+//         Name:
+//         <input
+//           type="text"
+//           value={name}
+//           onChange={(event) => handleChange(event, setName)}
+//         />
+//       </label>
+
+//       <label>
+//         Password:
+//         <input
+//           type="password"
+//           value={password}
+//           onChange={(event) => handleChange(event, setPassword)}
+//         />
+//       </label>
+//       <input type="submit" value="надіслати" />
+//     </form>
+//   );
+// }
+
+// export default Form;
