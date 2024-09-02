@@ -7,17 +7,14 @@
   position: relative;
 }
 
-.field-input {
-  padding: 10px;
-  border-radius: 12px;
-}
-
-.RoW {
-  flex-direction: row;
-}
-
-.eye {
+.iconTest {
   position: absolute;
-  top: 7px;
-  right: 10px;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+}
+
+.input-error {
+    border: solid 2px red;
 }
