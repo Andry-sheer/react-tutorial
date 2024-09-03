@@ -25,8 +25,16 @@ const Form = () => {
       return null;
     }
 
-    console.log(`name: ${name} \nsurName: ${surName}`);
-    console.log('Zapit....... itd....')
+    fetch("http://localhost:3000/login", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        surName: surName,
+      })
+    })
   };
 
   return (
