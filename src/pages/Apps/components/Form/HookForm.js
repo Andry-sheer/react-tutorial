@@ -2,7 +2,7 @@ import { useState } from "react";
 import Input from "../../../../components/Input/Input";
 import './Form.css';
 
-const Form = () => {
+const HookForm = () => {
   const [name, setName] = useState("");
   const [surName, setSurName] = useState("");
   const [isNameEmpty, setIsNameEmpty] = useState(false);
@@ -38,4 +38,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default HookForm;
