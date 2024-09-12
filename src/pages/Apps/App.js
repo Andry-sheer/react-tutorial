@@ -1,11 +1,12 @@
 import "./App.css";
-// import Clock from "../../components/Clock/Clock";
+import Clock from "../../components/Clock/Clock";
 import Users from "./components/Users/Users";
 import Profile from "./components/Profile/Profile";
 import Toggle from "./components/Toggle/Toggle";
-import Form from "./components/Form/HookForm";
-// import Count from "./components/Count/Count";
+import Form from "./components/Form/Form";
+import Count from "./components/Count/Count";
 import { useEffect, useState } from "react";
+import HookForm from "./components/Form/HookForm";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -45,7 +46,9 @@ const App = () => {
 
           {/* <Toggle /> */}
 
-          <Form />
+          <HookForm />
+
+          {/* <Form /> */}
 
           {/* <Clock date={new Date()} /> */}
 
