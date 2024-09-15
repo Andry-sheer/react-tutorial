@@ -1,8 +1,12 @@
 import { IoMdEye } from "react-icons/io";
+import { useContext } from "react";
 import "./Input.css";
+import { UserContext } from "../../pages/Apps/App";
 
 const Input = ({ isError, label, name, onInputChange, value }) => {
-  
+  const user = useContext(UserContext);
+  console.log(user);
+
   return (
     <label className={` label-input`} >
       {label}

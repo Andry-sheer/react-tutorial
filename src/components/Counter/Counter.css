@@ -1,0 +1,21 @@
+
+.Container {
+  background: rgb(57, 57, 155); 
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.Title {
+  font-size: 40px;
+  color: aquamarine;
+}
+
+.ButtonsCont {
+  display: flex;
+  gap: 20px;
+}
